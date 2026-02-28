@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', sans-serif;
+    --font-serif: 'Lora', serif;
+    
+    /* Timeless Dark Charcoal Theme */
+    --background: 0 0% 11%;
+    --foreground: 0 0% 92%;
+    
+    --card: 0 0% 13%;
+    --card-foreground: 0 0% 92%;
+    
+    --popover: 0 0% 13%;
+    --popover-foreground: 0 0% 92%;
+    
+    --primary: 0 0% 92%;
+    --primary-foreground: 0 0% 11%;
+    
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 92%;
+    
+    --muted: 0 0% 16%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 80%;
+
+    --radius: 0rem; /* Keep it sharp and timeless, no rounded corners for primary structural elements */
+  }
+
+  /* Force dark theme everywhere since the aesthetic calls for an exclusively dark charcoal background */
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-foreground selection:text-background;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply font-normal tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
