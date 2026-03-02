@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Backend developer focused on structured systems, architectural discipline, and minimal, deliberate software design.">
+    <meta name="author" content="Gaurav Singh">
+    <meta property="og:title" content="Gaurav Singh | Systems Builder">
+    <meta property="og:description" content="Structured software systems built with architectural discipline.">
+    <meta property="og:type" content="website">
+    <title>MetaGrid | Gaurav Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        background: "#0f0f0f"
+                    },
+                    maxWidth: {
+                        content: "1100px"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html { scroll-behavior: smooth; }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-white font-sans">
+
+    <!-- Navigation -->
+    <header id="navbar" class="w-full px-6 py-6 fixed top-0 left-0 z-50 transition duration-300">
+        <div class="max-w-content mx-auto flex justify-between items-center text-sm text-zinc-400">
+            <a href="../index.html" class="font-medium text-white">
+                Gaurav Singh
+            </a>
+            <a href="../index.html#systems" class="hover:text-white transition">
+                Back to Systems
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="min-h-screen flex items-center justify-center px-6 pt-24">
+        <div class="max-w-3xl mx-auto text-center reveal">
+
+            <h1 class="text-4xl md:text-6xl font-semibold leading-[1.1] tracking-tight">
+                MetaGrid
+            </h1>
+
+            <p class="mt-6 text-zinc-400 text-lg md:text-xl max-w-xl mx-auto">
+                A backend system that uses database metadata to automatically 
+                structure validation, rules, and query generation into clearly separated layers.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="py-24 md:py-40 px-6 border-t border-white/5">
+        <div class="max-w-3xl mx-auto space-y-32 reveal">
+
+            <!-- Context -->
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight">
+                    Context
+                </h2>
+                <p class="mt-6 text-zinc-400 leading-relaxed">
+                    As backend systems grow, they often repeat the same patterns across multiple tables:
+                    validation logic, operational rules, and query construction are implemented again and again.
+                    Over time, this repetition creates coupling, increases maintenance cost,
+                    and makes structural changes difficult.
+                </p>
+            </div>
+
+            <!-- Approach -->
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight">
+                    Approach
+                </h2>
+                <p class="mt-6 text-zinc-400 leading-relaxed">
+                    MetaGrid addresses this by using database metadata as a structural source of truth.
+                    Instead of writing table-specific handlers, the system reads schema information
+                    and routes each operation through clearly defined layers.
+                </p>
+
+                <p class="mt-6 text-zinc-400 leading-relaxed">
+                    Every request follows a disciplined flow:
+                    validation → rule enforcement → query building → execution.
+                    Each layer has one responsibility and does not leak into others.
+                </p>
+            </div>
+
+            <!-- Architecture -->
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight">
+                    System Architecture
+                </h2>
+
+                <ul class="mt-6 space-y-4 text-zinc-400 leading-relaxed">
+                    <li>• Schema Inspector to discover and track database structure</li>
+                    <li>• Metadata synchronization using set-difference comparison</li>
+                    <li>• Declarative operation rules independent of query builders</li>
+                    <li>• SQL builders designed as pure, focused components</li>
+                    <li>• Clear separation between validation, rules, and execution layers</li>
+                </ul>
+            </div>
+
+            <!-- Architecture Diagram -->
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight">
+                    Execution Flow
+                </h2>
+
+                <div class="mt-12 flex justify-center">
+                    <svg width="600" height="420" viewBox="0 0 600 420" class="max-w-full">
+
+                        <defs>
+                            <marker id="arrow"
+                                    markerWidth="6"
+                                    markerHeight="6"
+                                    refX="3"
+                                    refY="3"
+                                    orient="auto"
+                                    markerUnits="strokeWidth">
+                                <path d="M0,0 L6,3 L0,6 Z" fill="#444"/>
+                            </marker>
+                        </defs>
+
+                        <rect x="200" y="20" width="200" height="50"
+                            rx="8"
+                            fill="none"
+                            stroke="#444"
+                            stroke-width="1.2"/>
+                        <text x="300" y="50"
+                            text-anchor="middle"
+                            fill="#d4d4d8"
+                            font-size="14"
+                            font-family="Inter">
+                            Incoming Request
+                        </text>
+
+                        <rect x="200" y="100" width="200" height="50"
+                            rx="8"
+                            fill="none"
+                            stroke="#444"
+                            stroke-width="1.2"/>
+                        <text x="300" y="130"
+                            text-anchor="middle"
+                            fill="#d4d4d8"
+                            font-size="14"
+                            font-family="Inter">
+                            Validation Layer
+                        </text>
+
+                        <rect x="200" y="180" width="200" height="50"
+                            rx="8"
+                            fill="none"
+                            stroke="#444"
+                            stroke-width="1.2"/>
+                        <text x="300" y="210"
+                            text-anchor="middle"
+                            fill="#d4d4d8"
+                            font-size="14"
+                            font-family="Inter">
+                            Declarative Rules
+                        </text>
+
+                        <rect x="200" y="260" width="200" height="50"
+                            rx="8"
+                            fill="none"
+                            stroke="#444"
+                            stroke-width="1.2"/>
+                        <text x="300" y="290"
+                            text-anchor="middle"
+                            fill="#d4d4d8"
+                            font-size="14"
+                            font-family="Inter">
+                            SQL Builder
+                        </text>
+
+                        <rect x="200" y="340" width="200" height="50"
+                            rx="8"
+                            fill="none"
+                            stroke="#444"
+                            stroke-width="1.2"/>
+                        <text x="300" y="370"
+                            text-anchor="middle"
+                            fill="#d4d4d8"
+                            font-size="14"
+                            font-family="Inter">
+                            Execution
+                        </text>
+
+                        <line x1="300" y1="70" x2="300" y2="100"
+                            stroke="#444"
+                            stroke-width="1.2"
+                            marker-end="url(#arrow)" />
+
+                        <line x1="300" y1="150" x2="300" y2="180"
+                            stroke="#444"
+                            stroke-width="1.2"
+                            marker-end="url(#arrow)" />
+
+                        <line x1="300" y1="230" x2="300" y2="260"
+                            stroke="#444"
+                            stroke-width="1.2"
+                            marker-end="url(#arrow)" />
+
+                        <line x1="300" y1="310" x2="300" y2="340"
+                            stroke="#444"
+                            stroke-width="1.2"
+                            marker-end="url(#arrow)" />
+
+                    </svg>
+                </div>
+
+                <p class="mt-10 text-zinc-400 leading-relaxed max-w-2xl mx-auto text-center">
+                    Each stage operates independently. 
+                    No layer owns responsibilities outside its scope.
+                    The result is predictable, extensible execution flow.
+                </p>
+            </div>
+
+            <!-- Why It Matters -->
+            <div>
+                <h2 class="text-2xl font-semibold tracking-tight">
+                    Why It Matters
+                </h2>
+                <p class="mt-6 text-zinc-400 leading-relaxed">
+                    The goal of MetaGrid is not automation for its own sake.
+                    It is structural consistency.
+                    By separating responsibilities and centralizing metadata,
+                    the system becomes easier to extend, safer to modify,
+                    and more predictable as complexity increases.
+                </p>
+
+                <p class="mt-6 text-zinc-400 leading-relaxed">
+                    It transforms repetitive backend logic into a disciplined,
+                    extensible execution framework.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(el => observer.observe(el));
+
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add("bg-black/40", "backdrop-blur-sm");
+            } else {
+                navbar.classList.remove("bg-black/40", "backdrop-blur-sm");
+            }
+        });
+    </script>
+
+</body>
+</html>
